@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   mount_devise_token_auth_for 'Client', at: 'client_auth'
 
-  as :client do
-    resources :clients, only: [:create, :show, :destroy, :update]
+  resources :clients, only: [:create, :show, :update] do
+    delete "remove_account", on: :collection, to: "clients#remove_account"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
