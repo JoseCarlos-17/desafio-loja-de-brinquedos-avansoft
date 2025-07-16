@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_15_201526) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_16_033834) do
   create_table "admins", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_15_201526) do
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "full_name"
     t.date "birthdate"
     t.index ["confirmation_token"], name: "index_clients_on_confirmation_token", unique: true
     t.index ["email"], name: "index_clients_on_email", unique: true
@@ -63,4 +62,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_15_201526) do
     t.index ["uid", "provider"], name: "index_clients_on_uid_and_provider", unique: true
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.date "date"
+    t.integer "value"
+    t.integer "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_sales_on_client_id"
+  end
+
+  add_foreign_key "sales", "clients"
 end
