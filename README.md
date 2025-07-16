@@ -134,7 +134,7 @@ uid: <email>
 
 ##  Funcionalidades pendentes
 
-Por limite de tempo (entrega em 1 dia), as funcionalidades abaixo que não foram implementadas:
+Como eu priorizei a arquitetura do projeto adicionando o lado de "admin", as funcionalidades que não foram implementadas por limite de tempo foram:
 
 - Criação de vendas (`Sales`)
 - Endpoints de estatísticas por cliente
