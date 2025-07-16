@@ -1,5 +1,5 @@
 class Internal::Admin::ClientsController < ApplicationController
-  before_action :authenticate_admin!, only: [:index, :show, :destroy]
+  before_action :authenticate_admin!, only: [:index, :show, :destroy, :update]
   before_action :verify_is_admin
 
   def index
