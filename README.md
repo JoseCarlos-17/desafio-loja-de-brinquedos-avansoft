@@ -1,10 +1,11 @@
-# 🧸 Loja de Brinquedos - API
+# Loja de Brinquedos - API
 
 API construída em Ruby on Rails (API mode) com autenticação por token, gerenciamento de clientes e testes automatizados.
+Os testes foram feitos com Rspec, e para rodá-los é só executar o comando "rspec caminho_arquivo_de_teste"
 
 ---
 
-## 🚀 Tecnologias
+## Tecnologias
 
 - Ruby on Rails 7
 - SQLite (banco de dados)
@@ -14,7 +15,7 @@ API construída em Ruby on Rails (API mode) com autenticação por token, gerenc
 
 ---
 
-## 🔐 Autenticação
+## Autenticação
 
 Dois tipos de usuários autenticáveis:
 
@@ -34,9 +35,9 @@ uid: <email>
 
 ---
 
-## 👤 Clientes (`Client`)
+## Clientes (`Client`)
 
-### 📥 Cadastro
+### Cadastro
 
 - **Rota:** `POST /clients`  
 - **Descrição:** Cadastra um novo cliente.
@@ -55,14 +56,14 @@ uid: <email>
 
 ---
 
-### 👁️ Ver dados do próprio perfil
+### Ver dados do próprio perfil
 
 - **Rota:** `GET /clients/:id`  
 - **Requer autenticação como:** `Client`
 
 ---
 
-### ✏️ Atualizar dados do cliente
+###  Atualizar dados do cliente
 
 - **Rota:** `PUT /clients/:id`  
 - **Requer autenticação como:** `Client`
@@ -79,7 +80,7 @@ uid: <email>
 
 ---
 
-### ❌ Deletar a própria conta
+### Deletar a própria conta
 
 - **Rota:** `DELETE /clients/remove_account`  
 - **Requer autenticação como:** `Client`
@@ -88,9 +89,9 @@ uid: <email>
 
 ---
 
-## 🛠️ Admin
+## Admin
 
-### 📄 Listar todos os clientes
+### Listar todos os clientes
 
 - **Rota:** `GET /internal/admin/clients`  
 - **Requer autenticação como:** `Admin`
@@ -102,35 +103,26 @@ uid: <email>
 
 ---
 
-### 🔍 Ver cliente específico
+### Ver cliente específico
 
 - **Rota:** `GET /internal/admin/clients/:id`  
 - **Requer autenticação como:** `Admin`
 
 ---
 
-### 📝 Atualizar cliente
+### Atualizar cliente
 
 - **Rota:** `PUT /internal/admin/clients/:id`  
 - **Requer autenticação como:** `Admin`
 
 ---
 
-### 🗑️ Deletar cliente
+### Deletar cliente
 
 - **Rota:** `DELETE /internal/admin/clients/:id`  
 - **Requer autenticação como:** `Admin`
 
 ---
-
-## ✅ Testes Automatizados
-
-Testes implementados com `RSpec`.
-
-**Para rodar:**
-```bash
-bundle exec rspec
-```
 
 **Cobertura:**
 
@@ -140,21 +132,11 @@ bundle exec rspec
 
 ---
 
-## ⚠️ Funcionalidades pendentes
+##  Funcionalidades pendentes
 
-Por limite de tempo (entrega em 1 dia), as funcionalidades abaixo não foram implementadas:
+Por limite de tempo (entrega em 1 dia), as funcionalidades abaixo que não foram implementadas:
 
 - Criação de vendas (`Sales`)
 - Endpoints de estatísticas por cliente
+- Foto de perfil para Admin e Clientes com Active Storage
 
----
-
-## 📌 Observações finais
-
-A aplicação foi estruturada para refletir boas práticas de organização:
-
-- Separação entre controle de admins e clientes
-- Uso de namespaces (`Internal::Admin`)
-- Controle de autorização por tipo de usuário
-- Autenticação com Devise Token Auth
-- Testes automatizados com cobertura do fluxo principal
