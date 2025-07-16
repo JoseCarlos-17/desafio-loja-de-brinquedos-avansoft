@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'Admin', at: 'auth'
+  mount_devise_token_auth_for 'Admin', at: 'admin_auth'
 
-  mount_devise_token_auth_for 'Client', at: 'auth'
+  namespace :internal do
+    namespace :admin do
+      resources :clients, only: [:index, :show, :destroy, :update]
+    end
+  end
+
+  mount_devise_token_auth_for 'Client', at: 'client_auth'
+
   as :client do
-    # Define routes for Client within this block.
+    resources :clients, only: [:create, :show, :destroy, :update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
