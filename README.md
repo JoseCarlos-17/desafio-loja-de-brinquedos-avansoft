@@ -140,3 +140,6 @@ Como eu priorizei a arquitetura do projeto adicionando o lado de "admin", as fun
 - Endpoints de estatísticas por cliente
 - Foto de perfil para Admin e Clientes com Active Storage
 
+## Observações
+
+ - Durante o desenvolvimento, utilizei dois models, Admin e Client, com autenticação via DeviseTokenAuth. Como a gem não suporta múltiplos modelos autenticados simultaneamente com o mesmo SetUserByToken, isso acabou interferindo na parte da autorização, como se a autenticação estivesse sobrescrevendo-a. A solução ideal seria separar controllers base para cada modelo, usando set_user_by_token com o resource adequado. Por limitação de tempo, essa refatoração não foi implementada.
